@@ -1,12 +1,12 @@
 package classpath
 
 import (
-	"path/filepath"
 	"io/ioutil"
+	"path/filepath"
 )
 
 type DirEntry struct {
-	absDir	string
+	absDir string
 }
 
 func (entry *DirEntry) ReadClass(className string) ([]byte, Entry, error) {

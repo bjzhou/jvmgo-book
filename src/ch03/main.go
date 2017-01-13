@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"ch03/classpath"
-	"strings"
 	"ch03/classfile"
+	"ch03/classpath"
+	"fmt"
+	"strings"
 )
 
 func main() {

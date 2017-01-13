@@ -1,10 +1,10 @@
 package classpath
 
 import (
-	"path/filepath"
 	"archive/zip"
-	"io/ioutil"
 	"errors"
+	"io/ioutil"
+	"path/filepath"
 )
 
 type ZipEntry struct {
@@ -46,9 +46,9 @@ func newZipEntry(path string) *ZipEntry {
 	}
 	r, err := zip.OpenReader(absPath)
 	return &ZipEntry{
-		absPath:absPath,
-		zipReadCloser:r,
-		zipError:err,
+		absPath:       absPath,
+		zipReadCloser: r,
+		zipError:      err,
 	}
 }
 

@@ -1,8 +1,8 @@
 package classpath
 
 import (
-	"strings"
 	"errors"
+	"strings"
 )
 
 type CompositeEntry []Entry

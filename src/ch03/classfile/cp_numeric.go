@@ -33,4 +33,3 @@ func (info *ConstantLongInfo) readInfo(reader *ClassReader) {
 func (info *ConstantDoubleInfo) readInfo(reader *ClassReader) {
 	info.val = math.Float64frombits(reader.readUInt64())
 }
-
