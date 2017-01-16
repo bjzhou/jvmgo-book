@@ -5,6 +5,7 @@ import (
 	"ch04/classpath"
 	"fmt"
 	"strings"
+	"ch04/rtda"
 )
 
 func main() {
@@ -25,6 +26,39 @@ func startJVM(cmd *Cmd) {
 	cf := loadClass(className, cp)
 	fmt.Println(cmd.class)
 	printClassInfo(cf)
+	frame := rtda.NewFrame(100, 100)
+	testLocalVars(frame.LocalVars())
+	testOperandStack(frame.OperandStack())
+}
+
+func testLocalVars(vars rtda.LocalVars) {
+	vars.SetInt(0, 100)
+	vars.SetInt(1, -100)
+	vars.SetLong(2, 2997924580)
+	vars.SetFloat(4, 3.1415926)
+	vars.SetDouble(5, 2.71828182845)
+	vars.SetRef(7, nil)
+	println(vars.GetInt(0))
+	println(vars.GetInt(1))
+	println(vars.GetLong(2))
+	println(vars.GetFloat(4))
+	println(vars.GetDouble(5))
+	println(vars.GetRef(7))
+}
+
+func testOperandStack(ops *rtda.OperandStack) {
+	ops.PushInt(100)
+	ops.PushInt(-100)
+	ops.PushLong(-2997924580)
+	ops.PushFloat(3.1415926)
+	ops.PushDouble(2.71828182845)
+	ops.PushRef(nil)
+	println(ops.PopRef())
+	println(ops.PopDouble())
+	println(ops.PopFloat())
+	println(ops.PopLong())
+	println(ops.PopInt())
+	println(ops.PopInt())
 }
 
 func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
